@@ -1,0 +1,18 @@
+{
+    "contents" : "library(MASS)\r\nx1<-rnorm(10,mean=0,sd=7/3)\r\ny1<-rnorm(10,mean=0,sd=7/3)\r\nx2<-rnorm(20,mean=7,sd=7/3)\r\ny2<-rnorm(20,mean=7,sd=7/3)\r\nxy<-cbind(c(x1, x2),c(y1, y2))\r\nxy\r\ncl<-kmeans(xy,2)\r\nn<-30\r\nn.train<-floor(n*0.7)\r\nn.test<-n-n.train\r\nidx.train<-sample(1:n,n.train)\r\nidx.test<-(1:n)[!(1:n %in% idx.train)]\r\ndata.train<-xy[idx.train,] \r\ndata.test<-xy[idx.test,] \r\ncl.cluster<-cl$cluster\r\n\r\n# 1\r\ncl.train<-cl.cluster[idx.train]\r\ntr1<-cl.train\r\ncl.test<-cl.cluster[idx.test]\r\nmodel<-qda(data.train, cl.train) \r\ncl.test_est<-predict(model, data.test)$class\r\nsum(cl.test_est!=cl.test)/n.test\r\nidw<-idx.test[cl.test_est!=cl.test]\r\nplot(xy, type=\"n\")\r\npoints(xy[idx.train,],pch=24, col=ifelse(cl.train==1,\"blue\",\"green\")) \r\npoints(xy[idx.test,],pch=21, col=ifelse(cl.test==1,\"blue\",\"green\"))\r\npoints(xy[idw,],col=\"red\", pch=1)\r\n\r\n# 2\r\nidd<-sample(1:n.train,n.train * 0.2)\r\nfor(i in idd) {\r\n  if(cl.train[i]==1) cl.train[i]<-2;\r\n  if(cl.train[i]==2) cl.train[i]<-1;\r\n}\r\nmodel<-qda(data.train, cl.train) \r\ncl.test_est<-predict(model, data.test)$class\r\nsum(cl.test_est!=cl.test)/n.test\r\nidw<-idx.test[cl.test_est!=cl.test]\r\nplot(xy, type=\"n\")\r\npoints(xy[idx.train,],pch=24, col=ifelse(cl.train==1,\"blue\",\"green\")) \r\npoints(xy[idx.test,],pch=21, col=ifelse(cl.test==1,\"blue\",\"green\"))\r\npoints(xy[idw,],col=\"red\", pch=1)\r\ntr1\r\ncl.train\r\n\r\n",
+    "created" : 1447403301813.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1890534780",
+    "id" : "82A1E8B2",
+    "lastKnownWriteTime" : 1448013769,
+    "path" : "~/Desktop/вкиад/lab6/lab6.R",
+    "project_path" : "lab6.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

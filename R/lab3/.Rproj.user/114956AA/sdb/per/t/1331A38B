@@ -1,0 +1,18 @@
+{
+    "contents" : "120\t32\n114\t37\n93\t48\n124\t29\n122\t36\n124\t34\n107\t44\n116\t34\n123\t31\n109\t41\n104\t41\n122\t27\n109\t41\n121\t21\n111\t17\n124\t24\n122\t20\n117\t21\n109\t42\n123\t26",
+    "created" : 1446194661874.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3741463430",
+    "id" : "1331A38B",
+    "lastKnownWriteTime" : 1446194624,
+    "path" : "~/Desktop/вкиад/lab3-2/input.txt",
+    "project_path" : "input.txt",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "text"
+}

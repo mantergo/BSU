@@ -1,0 +1,17 @@
+{
+    "contents" : "rm(list=ls(all=TRUE))\ndat<-read.table(file=\"f.txt\",sep=\",\")\n#View(dat)\ny<-t(dat)\n#View(y)\na<-table(y)\n#View(a)\nf<-as.data.frame(a)\n#View(f)\nf[,3]<-100*as.numeric(f[,2])/(sum(as.numeric(f[,2])))\nf[,4]<-cumsum(as.numeric(f[,2]))\nf[,5]<-cumsum(as.numeric(f[,3]))\ncolnames(f)<-c(\"znacheiya\",\"chastota\",\"chastost'\",\"nakoplennaya chastosta\",\"nakoplennaya chastost'\")\n#View(f)\nb<-as.numeric(dat)\n#View(b)\nb<-sort(b)\n#View(b)\nb<-unique(b)\n#View(b)\nf[,1]<-b\nView(f)\nplot(as.numeric(f[,1]),as.numeric(f[,2]),type=\"l\",main=\"poligon raspr\",xlab=\"chastota\")\nplot(as.numeric(f[,1]),as.numeric(f[,5]),type=\"l\",main=\"kumul abs chast\")\nplot(as.numeric(f[,1]),as.numeric(f[,4]),type=\"l\",main=\"kum otn chast\")\n\n",
+    "created" : 1445546140227.000,
+    "dirty" : false,
+    "encoding" : "ASCII",
+    "folds" : "",
+    "hash" : "1728142560",
+    "id" : "5D34D4E5",
+    "lastKnownWriteTime" : 1445624852,
+    "path" : "~/Desktop/вкиад/lab1/lab1.R",
+    "project_path" : "lab1.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

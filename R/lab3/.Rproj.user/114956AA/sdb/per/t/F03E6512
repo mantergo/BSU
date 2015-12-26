@@ -1,0 +1,17 @@
+{
+    "contents" : "t <- read.table (\"input.txt\")\n\nplot (t, main = \"Correlation\")\n\ndisp <- var (t[,1])\ndeviat <- sqrt (disp)\naver <- mean (t[,1])\n\ngr1 <- subset (t[,1], ((aver - deviat) <= t[,1]) & (t[,1] <= (aver + deviat)))\ngr2 <- subset (t[,1], ((aver - 2 * deviat) <= t[,1]) & (t[,1] <= (aver + 2 * deviat)))\ngr3 <- subset (t[,1], ((aver - 3 * deviat) <= t[,1]) & (t[,1] <= (aver + 3 * deviat)))\n\npart2 <- matrix (0, 3, 3)\n\npart2[1:3,1] <- c (length (gr1), length (gr2), length(gr3))\npart2[1:3,2] <- part2[1:3,1]/length (t[,1]) * 100\npart2[1:3,3] <- c (68.3, 95.4, 99.7)\n\nrange <- max (t[,1]) - min (t[,1])\nk <- 1 + floor (log (length (t[,1]), 2))\nh <- range / k\n\nsa <- sort (t[,1])\n\npart3 <- matrix (0, k, 3)\n\nfor (i in 0:(k-1)) {\n    l <- sa[1] + i * h\n    r <- sa[1] + (i + 1) * h\n    gr <- subset (sa, l <= sa & (sa < r | i == k - 1 & sa <= r))\n    part3[i + 1, 1:3] <- c(length (gr), sum (gr), mean (gr))\n}\n\nv <- length (t[,1]) - 2\ncoefcor <- cor (t[,1], t[,2])\nT <- abs (coefcor) * sqrt (v / (1 - coefcor ^2))\n\ncoefcor\nT\nlm (t[,2]~t[,1])\n\npart2\npart3\nb<- -(sum(t[,1]*t[,2]))/sum(t[,1]*t[,1])\nb\na<- mean(t[,2])-b*mean(t[,1])\na\n\nlines(t[,1],abs(a + b*t[,1]))\n\n",
+    "created" : 1446195560267.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4040146428",
+    "id" : "F03E6512",
+    "lastKnownWriteTime" : 1446197541,
+    "path" : "~/Desktop/вкиад/lab3-2/lab3.r",
+    "project_path" : "lab3.r",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
