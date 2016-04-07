@@ -1,0 +1,5 @@
+4 7
+0 0 0 0 0  bo 0
+0 B C 0 a  a  0
+a a b 0 BO bo bo
+0 B a 0 bo 0  A  
