@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DarkGreenPH" parent="AppTheme">
+        <item name="android:colorForeground">@color/foreground_material_light</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/secondary_text_material_light</item>
+        <item name="android:textColorPrimaryInverse">@color/primary_text_material_dark</item>
+    </style>
+
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/buttonPressed</item>
+        <item name="colorButtonNormal">@color/buttonNormal</item>
+    </style>
+</resources>
